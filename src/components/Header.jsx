@@ -6,14 +6,14 @@ import { Carousel } from "react-responsive-carousel";
 const Header = () => {
   const Affiches = [
     {
-      titre: "What We Do in the Shadows",
-      image:
-        "https://image.tmdb.org/t/p/original/chckIPxBbvyFCcCFz8VPHgWCIHL.jpg",
-    },
-    {
       titre: "Succession",
       image:
         "https://image.tmdb.org/t/p/original//7HW47XbkNQ5fiwQFYGWdw9gs144.jpg",
+    },
+    {
+      titre: "What We Do in the Shadows",
+      image:
+        "https://image.tmdb.org/t/p/original/chckIPxBbvyFCcCFz8VPHgWCIHL.jpg",
     },
   ];
 
