@@ -33,12 +33,25 @@ const Series = ({ series, saison }) => {
     setSaisonVisible(!saisonVisible);
   };
 
+  const borderBottomStyle = {
+    width: "120px", 
+    height: "4px",
+    backgroundColor: "#4299E1", 
+    marginLeft: "7.5rem",
+    marginTop: "0.2rem",
+    position: "absolute",
+  };
+
   return (
-    <>
+    <main>
       <Header />
-      <div className="bg-gray-100 p-4">
-        <div className="container mx-auto flex flex-col md:flex-row justify-center items-center w-4/5">
-          <div className="md:w-1/3 md:pr-4">
+      <div className=" bg-gray-50 p-4">
+        <h1 className="text-blue-500 text-3xl pt-16 font-semibold pl-10 relative ">
+          Liste de séries
+          <div style={borderBottomStyle}></div>
+        </h1>
+        <div className="container mx-auto flex flex-col md:flex-row justify-center items-center w-4/5 mt-16">
+          <div className="md:w-1/3">
             <div className="bg-white rounded-lg shadow-md p-4">
               <div className="mb-4">
                 <Poster poster={poster} className="w-full h-auto" />
@@ -80,7 +93,7 @@ const Series = ({ series, saison }) => {
           <div className="md:w-2/3 md:pl-4">
             <div className="bg-white rounded-lg shadow-md p-10">
               <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-1/2 pr-4">
+                <div id="ListeSerie" className="w-full md:w-1/2 pr-4">
                   <Description
                     title={title}
                     overview={overview}
@@ -105,7 +118,7 @@ const Series = ({ series, saison }) => {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };
 
