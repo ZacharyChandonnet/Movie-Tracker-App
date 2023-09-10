@@ -10,7 +10,7 @@ const Trailer = ({ trailer }) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         title="Embedded youtube"
-        className="w-full h-56"
+        className="w-full h-56 rounded-xl"
       />
     </div>
   );

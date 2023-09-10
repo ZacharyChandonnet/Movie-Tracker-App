@@ -1,39 +1,46 @@
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { FaUserCheck } from "react-icons/fa6";
-import {useState} from "react";
+import ReactStars from "react-stars";
 
-const Rating = ({ rating, votes }) => {
+const Rating = React.memo(({ rating, votes }) => {
   const etoiles = (rating / 2).toFixed(0);
 
   const etoilesArray = [];
   for (let i = 0; i < etoiles; i++) {
-    etoilesArray.push(<FaStar key={i} />);
+    etoilesArray.push(<FaStar key={i} className=" text-yellow-500" />);
   }
-  
+
+  const ratingChanged = (newRating) => {
+    console.log(`New rating: ${newRating}`);
+  };
 
   return (
     <>
       <p className="flex items-center">
         {etoilesArray.map((etoile, index) => (
-          <span className="text-yellow-500" key={index}>
-            {etoile}
-          </span>
+          <span key={index}>{etoile}</span>
         ))}
-        <span className="text-blue-400 pl-4">
-          <FaUserCheck className="pl-1" /> </span> <span className="pl-1">{votes}</span>
+        <span className="text-blue-500 pl-4">
+          <FaUserCheck className="pl-1" />
+        </span>{" "}
+        <span className="pl-1">{votes}</span>
       </p>
-      <p>
-        <span className="text-sm text-gray-500">
+      <div className="flex">
+        <div className="text-sm text-gray-500">
           Mon avis{" "}
-          <span
-            className="inline-block"
-          >
-            <FaStar className="pl-2 pt-4" />
-          </span>
-        </span>
-      </p>
+          <div className="inline-block pt-2">
+            <ReactStars
+              count={5}
+              onChange={ratingChanged}
+              size={22}
+              color2={"#4299E1"}
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
-};
+});
 
 export default Rating;

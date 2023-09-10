@@ -12,15 +12,21 @@ const FillerInformation = ({ network, country, tagline, imdb }) => {
     case "ca":
       country = "Canada";
       break;
-      default:
+    default:
   }
 
   return (
-    <div className="text-sm leading-6" >
-      <p className="italic text-gray-500">{tagline}</p>
-      <p>Network : {network}</p>
+    <div className="text-sm">
+      <p className="italic text-gray-500 pt-1"> -"{tagline}"</p>
+      <p className="pt-4">Network : {network}</p>
       <p className="pb-6"> Pays : {country}</p>
-      <a className="cursor-pointer bg-blue-500 text-white p-2 rounded-xl hover:bg-blue-600 pl-5 pr-5" target="_blank"  href={imdb}>Voir Film</a>
+      <a
+        className="cursor-pointer bg-blue-500 text-white p-2 rounded-xl hover:bg-blue-600 pl-5 pr-5 w-full"
+        target="_blank"
+        href={imdb}
+      >
+        Voir Film
+      </a>
     </div>
   );
 };

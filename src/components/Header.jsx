@@ -5,6 +5,9 @@ const Header = () => {
   return (
     <>
       <NavBar/>
+      <header className="bg-black h-screen text-white">
+        HIIIs
+      </header>
     </>
   );
 };
