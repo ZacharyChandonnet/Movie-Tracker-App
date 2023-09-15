@@ -5,13 +5,13 @@ const NavBar = () => {
         <div className="text-white text-2xl font-bold">FlickFlow</div>
         <ul className="flex gap-6 space-x-4">
           <li>
-            <a href="#" className="text-white hover:text-gray-300">Accueil</a>
-          </li>
-          <li>
             <a href="#ListeSerie" className="text-white hover:text-gray-300">Liste de séries</a>
           </li>
           <li>
-            <a href="#" className="text-white hover:text-gray-300">Séries populaires</a>
+            <a href="#Serie" className="text-white hover:text-gray-300">Série</a>
+          </li>
+          <li>
+            <a href="#SerieFavorite" className="text-white hover:text-gray-300">Séries favorites</a>
           </li>
           <li>
             <a href="#" className="text-white hover:text-gray-300">Login</a>

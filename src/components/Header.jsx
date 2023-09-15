@@ -1,7 +1,8 @@
 import NavBar from "./NavBar";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import Lottie from "lottie-react";
+import Animation from  "./Animation.json"
 
 const Header = () => {
   const Affiches = [
@@ -36,25 +37,7 @@ const Header = () => {
             </a>
           </div>
           <div className=" mt-4 md:mt-0 ">
-            <Carousel
-              showArrows={true}
-              infiniteLoop={true}
-              showThumbs={false}
-              autoPlay={true}
-            >
-              {Affiches.map((affiche, index) => (
-                <div key={index} className="carousel-item relative">
-                  <img
-                    src={affiche.image}
-                    alt={affiche.titre}
-                    className="w-full h-96 object-cover object-center rounded-xl "
-                  />
-                  <p className="absolute bottom-4 left-4 text-white text-lg font-semibold bg-black bg-opacity-50 p-2 rounded">
-                    {affiche.titre}
-                  </p>
-                </div>
-              ))}
-            </Carousel>
+            <Lottie animationData={Animation} />
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import "./Favoris.css";
 
-const Favoris = () => {
+const Favoris = ({ serieId }) => {
   const [favoris, setFavoris] = useState(false);
 
   const ajouterFavoris = () => {
-    setFavoris((prevFavoris) => !prevFavoris); // Inverse la valeur de favoris
-    console.log(favoris ? "Retiré des favoris" : "Ajouté aux favoris");
+    setFavoris((prevFavoris) => !prevFavoris);
+    console.log(favoris ? `Série ${serieId} retirée des favoris` : `Série ${serieId} ajoutée aux favoris`);
   };
 
   return (

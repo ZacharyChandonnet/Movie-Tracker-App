@@ -2,13 +2,11 @@ import Description from "./Description";
 import Trailer from "./Trailer";
 import Rating from "./Rating";
 import Poster from "./Poster";
-import Header from "./Header";
 import FillerInformation from "./FillerInformation";
-import Favoris from "./Favoris";
 import { useState } from "react";
 import { HiArrowDown, HiArrowUp } from "react-icons/hi";
 
-const Series = ({ series, saison }) => {
+const Series = ({ series}) => {
   const {
     title,
     year,
@@ -25,7 +23,9 @@ const Series = ({ series, saison }) => {
     genres,
     aired_episodes,
     poster,
+    seasons,
   } = series;
+  
 
   const [saisonVisible, setSaisonVisible] = useState(false);
 
@@ -37,25 +37,25 @@ const Series = ({ series, saison }) => {
     width: "120px", 
     height: "4px",
     backgroundColor: "#4299E1", 
-    marginLeft: "7.5rem",
+    marginLeft: "2rem",
     marginTop: "0.2rem",
     position: "absolute",
   };
 
   return (
-    <main>
-      <Header />
-      <div className=" bg-gray-50 p-4">
-        <h1 className="text-blue-500 text-3xl pt-16 font-semibold pl-10 relative ">
-          Liste de séries
-          <div style={borderBottomStyle}></div>
-        </h1>
+      <div id="Serie" className=" bg-gray-50 p-4">
+      <h1 className="text-blue-500 text-3xl pt-16 font-semibold pl-10 relative">
+        Série
+        <div
+          style={borderBottomStyle}
+          className="border-b-2 border-blue-500 w-24 mt-2"
+        ></div>
+      </h1>
         <div className="container mx-auto flex flex-col md:flex-row justify-center items-center w-4/5 mt-16">
           <div className="md:w-1/3">
             <div className="bg-white rounded-lg shadow-md p-4">
               <div className="mb-4">
                 <Poster poster={poster} className="w-full h-auto" />
-                <Favoris />
               </div>
               <Rating rating={rating} votes={votes} />
               <p
@@ -71,7 +71,7 @@ const Series = ({ series, saison }) => {
               </p>
               {saisonVisible && (
                 <div className="mt-4">
-                  {saison.map((saison, index) => (
+                  {seasons.map((season, index) => (
                     <div key={index} className="mb-2 text-sm">
                       <p
                         style={{
@@ -79,9 +79,9 @@ const Series = ({ series, saison }) => {
                           paddingBottom: "0.5rem",
                         }}
                       >
-                        Saison : {saison.number} -{" "}
+                        Saison : {season.number} -{" "}
                         <span className="italic">
-                          Épisodes : {saison.episodes.length}
+                          Épisodes : {season.episodes.length}
                         </span>
                       </p>
                     </div>
@@ -118,7 +118,6 @@ const Series = ({ series, saison }) => {
           </div>
         </div>
       </div>
-    </main>
   );
 };
 
