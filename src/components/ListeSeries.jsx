@@ -1,7 +1,8 @@
 import Favoris from "./Favoris";
 
-const ListeSeries = ({ seriesData }) => {
+const ListeSeries = ({ seriesData, choisirSerie }) => {
   console.log(seriesData);
+  
 
   const borderBottomStyle = {
     width: "120px",
@@ -21,11 +22,12 @@ const ListeSeries = ({ seriesData }) => {
           className="border-b-2 border-blue-500 w-24 mt-2"
         ></div>
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-4">
+      <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-4">
         {seriesData.map((serie) => (
           <div
             className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
             key={serie.id}
+            onClick={() => choisirSerie(serie.id)}
           >
             <div className="overflow-hidden rounded-t-lg">
               <img

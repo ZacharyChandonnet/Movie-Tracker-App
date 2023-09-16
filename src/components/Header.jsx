@@ -21,11 +21,11 @@ const Header = () => {
   return (
     <div className="bg-white ">
       <NavBar />
-      <div className="max-w-screen-xl mx-auto pt-40 pb-40 ">
+      <div className="max-w-screen-xl mx-auto pt-10 pb-40 ">
         <div className="flex flex-col md:flex-row justify-between items-center ">
           <div className="md:w-1/2">
             <h1 className=" text-5xl font-semibold">
-              Bienvenue chez <span className="text-blue-500">FlickFlow</span>
+              Bienvenue chez <span className="text-blue-500 block">FlickFlow</span>
             </h1>
             <p className="text-gray-500 italic pt-3">
               Votre source de séries, tout en un seul endroit.
@@ -36,7 +36,7 @@ const Header = () => {
               </button>
             </a>
           </div>
-          <div className=" mt-4 md:mt-0 ">
+          <div className=" mt-4 md:mt-0 w-3/5">
             <Lottie animationData={Animation} />
           </div>
         </div>

@@ -64,9 +64,9 @@ const Series = ({ series}) => {
               >
                 Voir les saisons{" "}
                 {saisonVisible ? (
-                  <HiArrowUp className="pl-2 pt-2" />
+                  <HiArrowUp className="pl-2 pt-2 text-lg" />
                 ) : (
-                  <HiArrowDown className="pl-2 pt-2" />
+                  <HiArrowDown className="pl-2 pt-2 text-lg" />
                 )}
               </p>
               {saisonVisible && (
