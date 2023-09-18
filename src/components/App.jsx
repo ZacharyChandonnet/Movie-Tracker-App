@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ListeSeries from "./ListeSeries"; // Assurez-vous d'importer correctement votre composante ListeSeries
+import ListeSeries from "./ListeSeries";
 import SeriesListe from "./series_etape2_list.json";
 import SeriesDetails from "./series_etape2_details.json";
 import Header from "./Header";
@@ -9,9 +9,7 @@ import FavorisAnimation from "./FavorisAnimation.json";
 import Lottie from "lottie-react";
 import ListeAnimation from "./ListeAnimation.json";
 
-
 const App = () => {
-
   const borderBottomStyle = {
     width: "120px",
     height: "4px",
@@ -24,15 +22,16 @@ const App = () => {
   const [series, setSeries] = useState(null);
   const [favoris, setFavoris] = useState([]);
 
-  const ajouterFavoris = (id) => {
-    if (favoris.includes(id)) {
+  function ajouterOuRetirerFavori(id) {
+    const estDansFavoris = favoris.includes(id);
+
+    if (estDansFavoris) {
       const nouveauxFavoris = favoris.filter((serieId) => serieId !== id);
       setFavoris(nouveauxFavoris);
     } else {
       setFavoris([...favoris, id]);
     }
-  };
-
+  }
   const choisirSerie = (id) => {
     setSeries(SeriesDetails[id]);
   };
@@ -46,7 +45,7 @@ const App = () => {
     <>
       <Header />
       <main>
-      <div id="ListeSerie" className="flex pt-20">
+        <div id="ListeSerie" className="flex pt-20">
           <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
             Liste de séries
             <div
@@ -64,7 +63,7 @@ const App = () => {
           seriesData={SeriesListe}
           choisirSerie={choisirSerie}
           favoris={favoris}
-          ajouterFavoris={ajouterFavoris}
+          ajouterFavoris={ajouterOuRetirerFavori}
         />
         {series ? <Series series={series} /> : <p>Chargement...</p>}
         <div id="SerieFavorite" className="flex pt-20">
@@ -85,7 +84,7 @@ const App = () => {
           seriesData={SeriesListe.filter((serie) => favoris.includes(serie.id))}
           choisirSerie={choisirSerie}
           favoris={favoris}
-          ajouterFavoris={ajouterFavoris}
+          ajouterFavoris={ajouterOuRetirerFavori}
         />
         <Profil
           user="Zachary Chandonnet"

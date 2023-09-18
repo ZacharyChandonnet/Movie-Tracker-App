@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa6";
 import { FaUserCheck } from "react-icons/fa6";
 import ReactStars from "react-stars";
 
+// React.memo permet d'optimiser les performances en évitant de re-render le composant à chaque fois qu'il y a un changement (avec npm install react-stars)
 const Rating = React.memo(({ rating, votes }) => {
   const etoiles = (rating / 2).toFixed(0);
 

@@ -21,18 +21,21 @@ const Profil = ({ photo, user, favorites }) => {
       </div>
       <hr className="my-4 border-t border-gray-300" />
       <div className="flex items-center pt-10">
-        <div className="flex flex-col items-center space-y-2">
-          <img
-            src={photo}
-            alt="userImg"
-            className="rounded-full w-36 h-36 object-cover"
-          />
+        <img
+          src={photo}
+          alt="userImg"
+          className="rounded-full w-36 h-36 object-cover"
+        />
+        <div className="flex flex-col ml-4">
           <h3 className="text-lg font-semibold text-gray-800">
             Bonjour, <br /> <span className="italic">{user}</span>
           </h3>
-          <div className="font-semibold pl-8 text-gray-500 flex items-center">
-            Nombre de séries favorites: {favorites.length} <AiFillHeart />
-          
+          <div className="font-semibold text-gray-500 flex items-center mt-2">
+            <span className="mr-1">Nombre de séries favorites:</span>
+            {favorites.length}{" "}
+            <span className="text-red-500">
+              <AiFillHeart />
+            </span>
           </div>
         </div>
       </div>

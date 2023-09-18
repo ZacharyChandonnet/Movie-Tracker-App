@@ -3,7 +3,7 @@ import { FaHeart } from "react-icons/fa";
 import "./Favoris.css";
 
 const Favoris = ({ serieId, favoris, ajouterFavoris }) => {
-  const isFavorite = favoris.includes(serieId); 
+  const estDansFavoris = favoris.includes(serieId); 
 
   const toggleFavorite = () => {
     ajouterFavoris(serieId);
@@ -13,7 +13,7 @@ const Favoris = ({ serieId, favoris, ajouterFavoris }) => {
   return (
     <div className="favoris-container">
       <button className="favoris" onClick={toggleFavorite}>
-        <FaHeart className={isFavorite ? "favoris-icon" : ""} />
+        <FaHeart className={estDansFavoris ? "favoris-icon" : ""} />
       </button>
     </div>
   );
