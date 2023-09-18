@@ -1,3 +1,6 @@
+import Lottie from "lottie-react";
+import FavorisAnimation from "./FavorisAnimation.json";
+
 const SeriesFavorites = () => {
   const borderBottomStyle = {
     width: "120px",
@@ -9,14 +12,19 @@ const SeriesFavorites = () => {
   };
 
   return (
-    <div id="SerieFavorite">
-      <h1 className="text-blue-500 text-3xl pt-16 font-semibold pl-10 relative">
+    <div id="SerieFavorite" className="flex pt-20">
+      <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
         Séries favorites
         <div
           style={borderBottomStyle}
-          className="border-b-2 border-blue-500 w-24 mt-2"
+          className="border-b-2 border-blue-500  mt-2"
         ></div>
       </h1>
+      <div className="pl-10 items-center">
+        <div className="w-24 h-24">
+          <Lottie animationData={FavorisAnimation} />
+        </div>
+      </div>
     </div>
   );
 };

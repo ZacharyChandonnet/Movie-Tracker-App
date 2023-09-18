@@ -1,19 +1,19 @@
-import { useState } from "react";
+
 import { FaHeart } from "react-icons/fa";
 import "./Favoris.css";
 
-const Favoris = ({ serieId }) => {
-  const [favoris, setFavoris] = useState(false);
+const Favoris = ({ serieId, favoris, ajouterFavoris }) => {
+  const isFavorite = favoris.includes(serieId); 
 
-  const ajouterFavoris = () => {
-    setFavoris((prevFavoris) => !prevFavoris);
-    console.log(favoris ? `Série ${serieId} retirée des favoris` : `Série ${serieId} ajoutée aux favoris`);
+  const toggleFavorite = () => {
+    ajouterFavoris(serieId);
+    console.log("Favoris ajouté" + serieId);
   };
 
   return (
     <div className="favoris-container">
-      <button className="favoris" onClick={ajouterFavoris}>
-        <FaHeart className={favoris ? "favoris-icon" : ""} />
+      <button className="favoris" onClick={toggleFavorite}>
+        <FaHeart className={isFavorite ? "favoris-icon" : ""} />
       </button>
     </div>
   );

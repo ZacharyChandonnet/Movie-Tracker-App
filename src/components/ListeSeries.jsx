@@ -1,9 +1,6 @@
 import Favoris from "./Favoris";
 
-const ListeSeries = ({ seriesData, choisirSerie }) => {
-  console.log(seriesData);
-  
-
+const ListeSeries = ({ seriesData, choisirSerie, favoris, ajouterFavoris }) => {
   const borderBottomStyle = {
     width: "120px",
     height: "4px",
@@ -15,14 +12,7 @@ const ListeSeries = ({ seriesData, choisirSerie }) => {
 
   return (
     <div id="ListeSerie">
-      <h1 className="text-blue-500 text-3xl pt-5 font-semibold pl-10 relative">
-        Liste de séries
-        <div
-          style={borderBottomStyle}
-          className="border-b-2 border-blue-500 w-24 mt-2"
-        ></div>
-      </h1>
-      <div  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 p-4 pt-16">
         {seriesData.map((serie) => (
           <div
             className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
@@ -36,9 +26,15 @@ const ListeSeries = ({ seriesData, choisirSerie }) => {
                 className="w-full h-auto object-cover"
               />
             </div>
-              <Favoris serieId={serie.id} />
+            <Favoris
+              serieId={serie.id}
+              favoris={favoris}
+              ajouterFavoris={ajouterFavoris}
+            />
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-blue-500">{serie.title}</h3>
+              <h3 className="text-lg font-semibold text-blue-500">
+                {serie.title}
+              </h3>
               <p className="text-sm text-gray-500">{serie.year}</p>
             </div>
           </div>
