@@ -8,6 +8,7 @@ import Series from "./Series";
 import FavorisAnimation from "./Animations/FavorisAnimation.json";
 import Lottie from "lottie-react";
 import ListeAnimation from "./Animations/ListeAnimation.json";
+import Login from "./Login";
 
 const App = () => {
   const borderBottomStyle = {
@@ -91,6 +92,7 @@ const App = () => {
           photo="https://i.pravatar.cc"
           favorites={favoris}
         />
+        <Login />
       </main>
     </>
   );
