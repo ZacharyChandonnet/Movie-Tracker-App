@@ -1,6 +1,6 @@
 
 import { FaHeart } from "react-icons/fa";
-import "./Favoris.css";
+import "./CSS/Favoris.css";
 
 const Favoris = ({ serieId, favoris, ajouterFavoris }) => {
   const estDansFavoris = favoris.includes(serieId); 
