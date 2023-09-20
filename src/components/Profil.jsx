@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "lottie-react";
-import UserAnimation from "./UserAnimation.json";
+import UserAnimation from "./Animations/UserAnimation.json";
 import { AiFillHeart } from "react-icons/ai";
 
 const Profil = ({ photo, user, favorites }) => {

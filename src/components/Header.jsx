@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Lottie from "lottie-react";
-import Animation from  "./Animation.json"
+import Animation from  "./Animations/Animation.json";
 
 const Header = () => {
   const Affiches = [

@@ -6,7 +6,7 @@ import FillerInformation from "./FillerInformation";
 import { useState } from "react";
 import { HiArrowDown, HiArrowUp } from "react-icons/hi";
 import Lottie from "lottie-react";
-import SerieAnimation from "./SerieAnimation.json";
+import SerieAnimation from "./Animations/SerieAnimation.json";
 
 const Series = ({ series }) => {
   const {

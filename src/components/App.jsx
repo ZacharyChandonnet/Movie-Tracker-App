@@ -5,9 +5,9 @@ import SeriesDetails from "./series_etape2_details.json";
 import Header from "./Header";
 import Profil from "./Profil";
 import Series from "./Series";
-import FavorisAnimation from "./FavorisAnimation.json";
+import FavorisAnimation from "./Animations/FavorisAnimation.json";
 import Lottie from "lottie-react";
-import ListeAnimation from "./ListeAnimation.json";
+import ListeAnimation from "./Animations/ListeAnimation.json";
 
 const App = () => {
   const borderBottomStyle = {
@@ -29,7 +29,7 @@ const App = () => {
       const nouveauxFavoris = favoris.filter((serieId) => serieId !== id);
       setFavoris(nouveauxFavoris);
     } else {
-      setFavoris([...favoris, id]);
+      setFavoris([...favoris, id]); 
     }
   }
   const choisirSerie = (id) => {
