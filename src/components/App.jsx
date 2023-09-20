@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListeSeries from "./ListeSeries";
-import SeriesListe from "./series_etape2_list.json";
-import SeriesDetails from "./series_etape2_details.json";
+import SeriesListe from "./Data/series_etape2_list.json";
+import SeriesDetails from "./Data/series_etape2_details.json";
 import Header from "./Header";
 import Profil from "./Profil";
 import Series from "./Series";
