@@ -6,7 +6,7 @@ import { AiFillHeart } from "react-icons/ai";
 const Profil = ({ photo, user, favorites }) => {
   return (
     <div className="profil p-6 rounded-lg shadow-md">
-      <div className="flex items-center bg-blue-500 p-10 rounded-t-lg">
+      {/* <div className="flex items-center bg-blue-500 p-10 rounded-t-lg">
         <div className="w-20 h-20 mr-4">
           <Lottie animationData={UserAnimation} />
         </div>
@@ -18,7 +18,7 @@ const Profil = ({ photo, user, favorites }) => {
             Bienvenue sur votre tableau de bord personnel.
           </p>
         </div>
-      </div>
+      </div> */}
       <hr className="my-4 border-t border-gray-300" />
       <div className="flex items-center pt-10">
         <img

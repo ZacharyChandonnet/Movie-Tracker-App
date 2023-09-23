@@ -1,101 +1,114 @@
 import React, { useState, useEffect } from "react";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Navigate,
+} from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Login from "./Login";
+import Layout from "./Layout";
+import LayoutAuth from "./LayoutAuth";
 import ListeSeries from "./ListeSeries";
 import SeriesListe from "./Data/series_etape2_list.json";
 import SeriesDetails from "./Data/series_etape2_details.json";
-import Header from "./Header";
-import Profil from "./Profil";
 import Series from "./Series";
-import FavorisAnimation from "./Animations/FavorisAnimation.json";
-import Lottie from "lottie-react";
-import ListeAnimation from "./Animations/ListeAnimation.json";
-import Login from "./Login";
 
 const App = () => {
-  const borderBottomStyle = {
-    width: "120px",
-    height: "4px",
-    backgroundColor: "#4299E1",
-    marginLeft: "7.5rem",
-    marginTop: "0.2rem",
-    position: "absolute",
-  };
-
   const [series, setSeries] = useState(null);
   const [favoris, setFavoris] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
 
   function ajouterOuRetirerFavori(id) {
     const estDansFavoris = favoris.includes(id);
-
     if (estDansFavoris) {
       const nouveauxFavoris = favoris.filter((serieId) => serieId !== id);
       setFavoris(nouveauxFavoris);
     } else {
-      setFavoris([...favoris, id]); 
+      setFavoris([...favoris, id]);
     }
   }
+
   const choisirSerie = (id) => {
     setSeries(SeriesDetails[id]);
   };
 
-  useEffect(() => {
-    // On utilise useEffect pour charger une série au chargement de la page (ressource utilisée grâce à ChatGPT car je savais pas comment faire autrement)
-    choisirSerie(614);
-  }, []);
+  const estConnecter = (username) => {
+    setUsername(username);
+    setIsAuthenticated(true);
+  };
 
-  return (
-    <>
-      <Header />
-      <main>
-        <div id="ListeSerie" className="flex pt-20">
-          <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
-            Liste de séries
-            <div
-              style={borderBottomStyle}
-              className="border-b-2 border-blue-500  mt-2"
-            ></div>
-          </h1>
-          <div className=" items-center">
-            <div className=" pl-20 w-48 h-48">
-              <Lottie animationData={ListeAnimation} />
-            </div>
-          </div>
-        </div>
-        <ListeSeries
-          seriesData={SeriesListe}
-          choisirSerie={choisirSerie}
-          favoris={favoris}
-          ajouterFavoris={ajouterOuRetirerFavori}
-        />
-        {series ? <Series series={series} /> : <p>Chargement...</p>}
-        <div id="SerieFavorite" className="flex pt-20">
-          <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
-            Séries favorites
-            <div
-              style={borderBottomStyle}
-              className="border-b-2 border-blue-500  mt-2"
-            ></div>
-          </h1>
-          <div className="pl-10 items-center">
-            <div className="w-24 h-24">
-              <Lottie animationData={FavorisAnimation} />
-            </div>
-          </div>
-        </div>
-        <ListeSeries
-          seriesData={SeriesListe.filter((serie) => favoris.includes(serie.id))}
-          choisirSerie={choisirSerie}
-          favoris={favoris}
-          ajouterFavoris={ajouterOuRetirerFavori}
-        />
-        <Profil
-          user="Zachary Chandonnet"
-          photo="https://i.pravatar.cc"
-          favorites={favoris}
-        />
-        <Login />
-      </main>
-    </>
-  );
+  const estDeconnecter = () => {
+    setUsername("");
+    setIsAuthenticated(false);
+    return <Navigate to="/login" replace />;
+  };
+
+  const params = useParams();
+
+  const routes = [
+    {
+      path: "",
+      element: isAuthenticated ? (
+        <Layout username={username} favorites={favoris} estDeconnecter={estDeconnecter} />
+      ) : (
+        <Navigate to="/login" />
+      ),
+      children: [
+        {
+          path: "listeSerie",
+          element: (
+            <ListeSeries
+              seriesData={SeriesListe}
+              choisirSerie={choisirSerie}
+              favoris={favoris}
+              ajouterFavoris={ajouterOuRetirerFavori}
+            />
+          ),
+          children: [
+            {
+              path: ":id",
+              element: <Series series={series} />,
+            },
+          ],
+        },
+        {
+          path: "favoris",
+          element: (
+            <ListeSeries
+              seriesData={SeriesListe.filter((serie) =>
+                favoris.includes(serie.id)
+              )}
+              choisirSerie={choisirSerie}
+              favoris={favoris}
+              ajouterFavoris={ajouterOuRetirerFavori}
+            />
+          ),
+          children: [
+            {
+              path: ":id",
+              element: <Series series={series} />,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      path: "login",
+      element: isAuthenticated ? (
+        <Navigate to="/listeSerie" />
+      ) : (
+        <Login estConnecter={estConnecter} />
+      ),
+    },
+    {
+      path: "*",
+      element: <Navigate to="/login" />,
+    },
+  ];
+  
+  return <RouterProvider router={createBrowserRouter(routes)} />;
+  
 };
 
 export default App;
