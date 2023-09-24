@@ -20,6 +20,7 @@ const App = () => {
   const [favoris, setFavoris] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState(""); // Ajout du mot de passe
 
   function ajouterOuRetirerFavori(id) {
     const estDansFavoris = favoris.includes(id);
@@ -33,16 +34,17 @@ const App = () => {
 
   const choisirSerie = (id) => {
     setSeries(SeriesDetails[id]);
- 
   };
 
-  const estConnecter = (username) => {
+  const estConnecter = (username, password) => { // Modification de la fonction
     setUsername(username);
+    setPassword(password); // Sauvegarde du mot de passe
     setIsAuthenticated(true);
   };
 
   const estDeconnecter = () => {
     setUsername("");
+    setPassword(""); // Réinitialisation du mot de passe
     setIsAuthenticated(false);
     return <LayoutAuth />;
   };
@@ -53,7 +55,11 @@ const App = () => {
     {
       path: "",
       element: isAuthenticated ? (
-        <Layout username={username} favorites={favoris} estDeconnecter={estDeconnecter} />
+        <Layout
+          username={username}
+          favorites={favoris}
+          estDeconnecter={estDeconnecter}
+        />
       ) : (
         <Navigate to="/login" />
       ),
@@ -109,9 +115,8 @@ const App = () => {
       element: <Navigate to="/login" />,
     },
   ];
-  
+
   return <RouterProvider router={createBrowserRouter(routes)} />;
-  
 };
 
 export default App;

@@ -5,10 +5,11 @@ import LoginAnimation from "./Animations/LoginAnimation.json";
 const Login = ({ estConnecter }) => {
   const [montrerFormEmail, setMontrerFormEmail] = useState(false);
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const onClick = () => {
-    if (!username) {
-      alert("Veuillez entrer un nom d'utilisateur.");
+    if (!username || !password) { // Vérification du nom d'utilisateur et du mot de passe
+      alert("Veuillez entrer un nom d'utilisateur et un mot de passe.");
       return;
     }
 
@@ -67,10 +68,11 @@ const Login = ({ estConnecter }) => {
                 id="password"
                 className="border-2 border-blue-500 rounded-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-600"
                 placeholder="Mot de passe"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
-          
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input type="checkbox" className="mr-2" />
