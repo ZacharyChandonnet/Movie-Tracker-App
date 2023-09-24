@@ -1,18 +1,43 @@
 import Favoris from "./Favoris";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import Lottie from "lottie-react";
+import ListeAnimation from "./Animations/ListeAnimation.json";
 
-const ListeSeries = ({ seriesData, choisirSerie, favoris, ajouterFavoris, page }) => {
+const ListeSeries = ({ seriesData, choisirSerie, favoris, ajouterFavoris }) => {
   const location = useLocation();
   const isListeSeriePage = location.pathname.includes("/listeSerie");
 
+  const borderBottomStyle = {
+    width: "100px",
+    height: "4px",
+    backgroundColor: "#4299E1",
+    marginLeft: "6rem",
+    marginTop: "0.2rem",
+    position: "absolute",
+  };
+
   return (
     <div id="ListeSerie">
-      <div className="grid grid-cols-5 gap-5 p-4">
+      <div id="ListeSerie" className="flex pt-20">
+          <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
+            Liste Séries
+            <div
+              style={borderBottomStyle}
+              className="border-b-2 border-blue-500  mt-2"
+            ></div>
+          </h1>
+          <div className=" items-center">
+            <div className=" pl-10 w-32 h-32">
+              <Lottie animationData={ListeAnimation} />
+            </div>
+          </div>
+        </div>
+      <div className="grid grid-cols-5 gap-5 p-4 mt-5">
         {seriesData.map((serie) => (
-           <Link
-           to={`${isListeSeriePage ? "/listeSerie" : "/favoris"}/${serie.id}`}
-           key={serie.id}
-         >
+          <Link
+            to={`${isListeSeriePage ? "/listeSerie" : "/favoris"}/${serie.id}`}
+            key={serie.id}
+          >
             <div
               className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
               key={serie.id}

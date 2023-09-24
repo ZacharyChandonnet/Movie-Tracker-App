@@ -4,6 +4,9 @@ import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 
 const Layout = ({favorites, children, estDeconnecter, username}) => {
+
+  const photoProfil = "https://i.pravatar.cc";
+
       return (
         <>
           <Header />
