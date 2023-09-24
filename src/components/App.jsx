@@ -3,6 +3,8 @@ import {
   RouterProvider,
   createBrowserRouter,
   Navigate,
+  useLocation,
+  useNavigate,
 } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Login from "./Login";
@@ -31,6 +33,7 @@ const App = () => {
 
   const choisirSerie = (id) => {
     setSeries(SeriesDetails[id]);
+ 
   };
 
   const estConnecter = (username) => {
@@ -41,7 +44,7 @@ const App = () => {
   const estDeconnecter = () => {
     setUsername("");
     setIsAuthenticated(false);
-    return <Navigate to="/login" replace />;
+    return <LayoutAuth />;
   };
 
   const params = useParams();

@@ -1,22 +1,23 @@
 import Favoris from "./Favoris";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-const ListeSeries = ({ seriesData, choisirSerie, favoris, ajouterFavoris }) => {
+const ListeSeries = ({ seriesData, choisirSerie, favoris, ajouterFavoris, page }) => {
   const location = useLocation();
-  console.log(location.pathname);
+  const isListeSeriePage = location.pathname.includes("/listeSerie");
 
   return (
     <div id="ListeSerie">
       <div className="grid grid-cols-5 gap-5 p-4">
         {seriesData.map((serie) => (
-          <Link to={`/listeSerie/${serie.id}`} key={serie.id}>
+           <Link
+           to={`${isListeSeriePage ? "/listeSerie" : "/favoris"}/${serie.id}`}
+           key={serie.id}
+         >
             <div
               className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
               key={serie.id}
               onClick={() => {
-                if (location.pathname !== "/favoris") {
-                  choisirSerie(serie.id);
-                }
+                choisirSerie(serie.id);
               }}
             >
               <div className="overflow-hidden rounded-t-lg">

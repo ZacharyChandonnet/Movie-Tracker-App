@@ -4,7 +4,7 @@ import LoginAnimation from "./Animations/LoginAnimation.json";
 
 const Login = ({ estConnecter }) => {
   const [montrerFormEmail, setMontrerFormEmail] = useState(false);
-  const [username, setUsername] = useState(""); // Ajoutez le state pour le nom d'utilisateur
+  const [username, setUsername] = useState("");
 
   const onClick = () => {
     if (!username) {
