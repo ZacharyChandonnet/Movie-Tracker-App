@@ -49,7 +49,7 @@ const Series = ({ series }) => {
 
     return (
       <div id="Serie" className=" bg-gray-50 p-4">
-        <div className="flex pt-20">
+        <div id="ListeSerie" className="flex pt-20">
           <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
             Série
             <div

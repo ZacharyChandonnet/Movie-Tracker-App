@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   RouterProvider,
   createBrowserRouter,
   Navigate,
-  useLocation,
-  useNavigate,
 } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Login from "./Login";
@@ -20,7 +18,7 @@ const App = () => {
   const [favoris, setFavoris] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState(""); // Ajout du mot de passe
+  const [password, setPassword] = useState(""); 
 
   function ajouterOuRetirerFavori(id) {
     const estDansFavoris = favoris.includes(id);
@@ -36,15 +34,15 @@ const App = () => {
     setSeries(SeriesDetails[id]);
   };
 
-  const estConnecter = (username, password) => { // Modification de la fonction
+  const estConnecter = (username, password) => { 
     setUsername(username);
-    setPassword(password); // Sauvegarde du mot de passe
+    setPassword(password); 
     setIsAuthenticated(true);
   };
 
   const estDeconnecter = () => {
     setUsername("");
-    setPassword(""); // Réinitialisation du mot de passe
+    setPassword("");
     setIsAuthenticated(false);
     return <LayoutAuth />;
   };
@@ -102,7 +100,7 @@ const App = () => {
         },
       ],
     },
-    {
+    { 
       path: "login",
       element: isAuthenticated ? (
         <Navigate to="/listeSerie" />
