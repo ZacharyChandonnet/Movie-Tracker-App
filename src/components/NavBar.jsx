@@ -9,7 +9,7 @@ const NavBar = ({links}) => {
         <ul className="flex gap-6 space-x-4">
         {links.map(({ url, name }) => (
           <li key={name}>
-            <Link className="text-white" to={url}>{name}</Link>
+            <Link className="text-white hover:text-gray-300" to={url}>{name}</Link>
           </li>
         ))}
         </ul>

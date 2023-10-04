@@ -7,9 +7,14 @@ import { useState } from "react";
 import { HiArrowDown, HiArrowUp } from "react-icons/hi";
 import Lottie from "lottie-react";
 import SerieAnimation from "./Animations/SerieAnimation.json";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams, useLocation } from "react-router-dom";
 
 const Series = ({ series }) => {
+  const location = useLocation();
+  if (!series) {
+    return <Navigate to={location.pathname} replace />;
+  }
+
   const {
     title,
     year,
@@ -117,7 +122,11 @@ const Series = ({ series }) => {
                   />
                 </div>
                 <div className="w-full md:w-1/2 pl-10">
-                  <Trailer trailer={trailer} />
+                  {trailer ? (
+                    <Trailer trailer={trailer} />
+                  ) : (
+                    <p className="text-red-500">Pas de trailer</p>
+                  )}
                   <FillerInformation
                     network={network}
                     country={country}

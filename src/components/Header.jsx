@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import React from "react";
 import Lottie from "lottie-react";
-import Animation from "./Animations/Animation.json";
+import Animation from "./Animations/Header.json";
 import {Link} from "react-router-dom";
 
 const Header = () => {
@@ -10,12 +10,15 @@ const Header = () => {
       <NavBar
         links={[
           {
-            url: "/listeSerie",
-            name: "Liste de séries",
+            url: "/trending",
+            name: "Séries Trending",
           },
           {
             url: "/favoris",
             name: "Favoris",
+          },{
+            url: "/recherche",
+            name: "Recherche",
           }
         ]}
       />

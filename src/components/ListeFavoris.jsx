@@ -9,10 +9,10 @@ const ListeSeries = ({ choisirSerie, favoris, ajouterFavoris, series }) => {
   }
 
   const borderBottomStyle = {
-    width: "120px",
+    width: "80px",
     height: "4px",
     backgroundColor: "#4299E1",
-    marginLeft: "6rem",
+    marginLeft: "0rem",
     marginTop: "0.2rem",
     position: "absolute",
   };
@@ -21,7 +21,7 @@ const ListeSeries = ({ choisirSerie, favoris, ajouterFavoris, series }) => {
     <div id="ListeSerie">
       <div className="flex pt-20">
         <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
-          Series Trending
+          Favoris
           <div
             style={borderBottomStyle}
             className="border-b-2 border-blue-500  mt-2"
@@ -35,7 +35,7 @@ const ListeSeries = ({ choisirSerie, favoris, ajouterFavoris, series }) => {
       </div>
       <div className="grid grid-cols-5 gap-5 p-4 mt-5">
         {series.map((serie) => (
-          <Link to={`/trending/${serie.id}`} key={serie.id}>
+          <Link to={`/favoris/${serie.id}`} key={serie.id}>
             <div
               className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
               key={serie.id}
