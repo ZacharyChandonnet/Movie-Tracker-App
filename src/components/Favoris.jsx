@@ -11,10 +11,11 @@ const Favoris = ({ serieId, favoris, ajouterFavoris }) => {
     console.log("Favoris ajouté" + serieId);
   };
 
+
   return (
     <div className="favoris-container">
-      <button className="favoris" onClick={toggleFavorite}>
-        <FaHeart className={estDansFavoris ? "favoris-icon" : ""} />
+      <button data-cy="btn_favoris" className="favoris" onClick={toggleFavorite}>
+        <FaHeart data-cy="btn-favoris" className={estDansFavoris ? "favoris-icon" : ""} />
       </button>
     </div>
   );

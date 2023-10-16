@@ -3,26 +3,28 @@ import Lottie from "lottie-react";
 import LoginAnimation from "./Animations/LoginAnimation.json";
 
 const Login = ({ estConnecter }) => {
-  const [montrerFormEmail, setMontrerFormEmail] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const onClick = () => {
-    if (!username || !password) { // Vérification du nom d'utilisateur et du mot de passe
-      alert("Veuillez entrer un nom d'utilisateur et un mot de passe.");
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!username || !password) {
+      setErrorMessage(
+        "Veuillez entrer un nom d'utilisateur et un mot de passe."
+      );
       return;
     }
-
     estConnecter(username);
-  };
-
-  const montrerEmail = () => {
-    setMontrerFormEmail(!montrerFormEmail);
   };
 
   return (
     <div className="bg-blue-500 min-h-screen flex justify-center items-center">
-      <div className="bg-white p-20 rounded-md flex flex-col md:flex-row justify-between items-center">
+      <form
+        data-cy="formulaire"
+        className="bg-white p-20 rounded-md flex flex-col md:flex-row justify-between items-center"
+        onSubmit={handleFormSubmit}
+      >
         <div className="md:w-2/5 pr-8 mx-auto">
           <h1 className="text-4xl font-semibold text-center text-blue-600">
             FlickFlow
@@ -36,6 +38,7 @@ const Login = ({ estConnecter }) => {
                 Nom d'utilisateur
               </label>
               <input
+                data-cy="fld_username"
                 type="text"
                 id="username"
                 className="border-2 border-blue-500 rounded-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-600"
@@ -45,25 +48,12 @@ const Login = ({ estConnecter }) => {
               />
             </div>
 
-            {montrerFormEmail && (
-              <div className="flex flex-col">
-                <label htmlFor="email" className="text-gray-600">
-                  Adresse e-mail
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="border-2 border-blue-500 rounded-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-600"
-                  placeholder="Adresse e-mail"
-                />
-              </div>
-            )}
-
             <div className="flex flex-col">
               <label htmlFor="password" className="text-gray-600">
                 Mot de passe
               </label>
               <input
+                data-cy="fld_password"
                 type="password"
                 id="password"
                 className="border-2 border-blue-500 rounded-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-600"
@@ -72,6 +62,10 @@ const Login = ({ estConnecter }) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+
+            {errorMessage && (
+              <div className="text-red-500 text-sm italic">{errorMessage}</div>
+            )}
 
             <div className="flex items-center justify-between">
               <div className="flex items-center">
@@ -86,19 +80,14 @@ const Login = ({ estConnecter }) => {
             </div>
             <div className="flex space-x-4">
               <button
+                data-cy="btn_auth"
                 type="submit"
                 className="bg-blue-500 text-white rounded-full py-2 px-4 hover:bg-blue-600 focus:outline-none focus:ring focus:bg-blue-600"
-                onClick={onClick}
               >
                 Se connecter
               </button>
-              <button
-                className="bg-blue-400 text-white rounded-full py-2 px-4 hover:bg-blue-500 focus:outline-none focus:rin"
-                onClick={montrerEmail}
-              >
-                S'inscrire
-              </button>
             </div>
+
             <div className="text-center text-gray-400 text-sm mt-4">
               2023 Zachary Chandonnet - Devoir en continu Web5
             </div>
@@ -107,7 +96,7 @@ const Login = ({ estConnecter }) => {
         <div className="md:w-2/5">
           <Lottie animationData={LoginAnimation} />
         </div>
-      </div>
+      </form>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Header = () => {
         links={[
           {
             url: "/trending",
-            name: "Séries Trending",
+            name: "Trending",
           },
           {
             url: "/favoris",

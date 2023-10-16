@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Once Upon a Time",
+        "year": 2011,
+        "id": 39108,
+        "slug": "once-upon-a-time",
+        "imdb": "https://www.imdb.com/title/tt1843230/",
+        "poster": "https://image.tmdb.org/t/p/w500/49qD372jeHUTmdNMGJkjCFZdv9y.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/4043WFrLsGnZa3RL4Po9buc1EtF.jpg"
+    },
+    {
+        "title": "Making a Murderer",
+        "year": 2015,
+        "id": 103423,
+        "slug": "making-a-murderer",
+        "imdb": "https://www.imdb.com/title/tt5189670/",
+        "poster": "https://image.tmdb.org/t/p/w500/sy2nV3rCcJQaRK5M0NWvvTU7CBx.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/i0bVPXHdvLQzE1Ld8dDwbCj1kOW.jpg"
+    },
+    {
+        "title": "A Teacher",
+        "year": 2020,
+        "id": 136021,
+        "slug": "a-teacher",
+        "imdb": "https://www.imdb.com/title/tt10680614/",
+        "poster": "https://image.tmdb.org/t/p/w500/rH2eEuThzRQh87Uxz6SY3BuVNBD.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/wHcurqKFGAM9dA0zfqhpEXXSe6Q.jpg"
+    },
+    {
+        "title": "The A-Team",
+        "year": 1983,
+        "id": 1506,
+        "slug": "the-a-team",
+        "imdb": "https://www.imdb.com/title/tt0084967/",
+        "poster": "https://image.tmdb.org/t/p/w500/p2qWJJ7Wyaq2xvgIHuBw4zVNBij.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/ggPjnOA5sap6wyuAGUY7kwRseEi.jpg"
+    },
+    {
+        "title": "A Confession",
+        "year": 2019,
+        "id": 139619,
+        "slug": "a-confession",
+        "imdb": "https://www.imdb.com/title/tt9131050/",
+        "poster": "https://image.tmdb.org/t/p/w500/6c6q8m5PCiXv3TlxmM0vIcLylb0.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/9TyOYxzQr0SOmruw2i9F4vb1wXW.jpg"
+    },
+    {
+        "title": "A+",
+        "year": 2023,
+        "id": 205013,
+        "slug": "a-2023",
+        "imdb": "https://www.imdb.com/title/tt23557356/",
+        "poster": "https://image.tmdb.org/t/p/w500/xmAgNsU3SwIfGpWK6jgS8iUa9ez.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/6PHxLT4PV8GbXaDQLCbiA9Nxw9I.jpg"
+    },
+    {
+        "title": "Two and a Half Men",
+        "year": 2003,
+        "id": 2673,
+        "slug": "two-and-a-half-men",
+        "imdb": "https://www.imdb.com/title/tt0369179/",
+        "poster": "https://image.tmdb.org/t/p/w500/A9QDK4OWpv41W27kCv0LXe30k9S.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/coHpOy9OJyFiHWeH36cSHMpLUHC.jpg"
+    },
+    {
+        "title": "It's a Sin",
+        "year": 2021,
+        "id": 159685,
+        "slug": "it-s-a-sin",
+        "imdb": "https://www.imdb.com/title/tt9140342/",
+        "poster": "https://image.tmdb.org/t/p/w500/3nLdJCSAek7JMHBwFIBhJOm64Ee.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/pVkw6917LRh4mWkbDKe5sIMCzci.jpg"
+    },
+    {
+        "title": "A Discovery of Witches",
+        "year": 2018,
+        "id": 128323,
+        "slug": "a-discovery-of-witches",
+        "imdb": "https://www.imdb.com/title/tt2177461/",
+        "poster": "https://image.tmdb.org/t/p/w500/l7MUpFAE8UEWYnO2Uv7SFtdZ2OJ.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/mZOw5cBXPDfSv1T8IFWsWi8Wktp.jpg"
+    },
+    {
+        "title": "M*A*S*H",
+        "year": 1972,
+        "id": 913,
+        "slug": "m-a-s-h",
+        "imdb": "https://www.imdb.com/title/tt0068098/",
+        "poster": "https://image.tmdb.org/t/p/w500/6rhuM3oMoEWKxAdrm7IyM8oq8cC.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/62OzZXACdMjIiaYk8e6IOB0xQcl.jpg"
+    }
+]

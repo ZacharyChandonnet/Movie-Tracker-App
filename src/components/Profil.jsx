@@ -17,7 +17,7 @@ const Profil = ({ photo, user, favorites }) => {
           </h3>
           <div className="font-semibold text-gray-500 flex items-center mt-1">
             Nombre de favoris :
-            <span className="text-red-500 text-base mr-1 ml-1">
+            <span data-testid="favoris" className="text-red-500 text-base mr-1 ml-1">
               {favorites.length} {" "}
             </span>
             <span className="text-gray-500">

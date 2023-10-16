@@ -1,8 +1,7 @@
-# React + Vite
+# FlickFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ Projet réalisé en React et Tailwind
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Flickflow est une application dotée de fonctionnalités similaires à celles d'un gestionnaire de films : 
+elle permet l'authentification des utilisateurs, l'ajout de leurs favoris, la possibilité de donner leur propre note à une série, ainsi qu'un moteur de recherche. 
+Toutes les données proviennent d'une API externe RESTful.

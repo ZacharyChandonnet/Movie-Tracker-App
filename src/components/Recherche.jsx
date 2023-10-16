@@ -32,12 +32,27 @@ const Recherche = ({
           throw new Error("Erreur lors de la recherche");
         }
         const responseData = await response.json();
-        const data = responseData.series;
+        let data = responseData.series;
 
         if (data.length === 0) {
           setSearchResults([]);
           setSearchError("Aucun résultat");
         } else {
+          // Sort the data array by title
+          data.sort((a, b) => {
+            // Assuming a and b have a "title" property
+            const titleA = a.title.toLowerCase();
+            const titleB = b.title.toLowerCase();
+
+            if (titleA < titleB) {
+              return -1;
+            }
+            if (titleA > titleB) {
+              return 1;
+            }
+            return 0;
+          });
+
           setSearchResults(data);
           setSearchError(null);
         }
@@ -53,11 +68,12 @@ const Recherche = ({
     <div className="container mx-auto mt-10 px-4">
       <div className="text-center mb-5">
         <h1 className="text-xl text-blue-500">Que recherchez-vous ?</h1>
-        <p className="text-gray-500 italic" >Explorez des milliers de séries.</p>
+        <p className="text-gray-500 italic">Explorez des milliers de séries.</p>
       </div>
       <div className="flex items-center justify-center">
         <div className="relative w-full max-w-md">
           <input
+            data-query="query"
             type="text"
             className="w-full py-3 px-6 rounded-full bg-blue-500 text-white placeholder-white focus:outline-none"
             placeholder="Rechercher..."
@@ -67,6 +83,7 @@ const Recherche = ({
           <button
             className="absolute right-0 top-0 mt-3 mr-3 text-white hover:bg-blue-700 font-semibold rounded-full pb-2 px-3 pt-1"
             onClick={recherche}
+            aria-label="Rechercher" 
           >
             <AiOutlineSearch className="w-4 h-4" />
           </button>

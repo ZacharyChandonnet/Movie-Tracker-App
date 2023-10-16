@@ -1,37 +1,21 @@
 /// <reference types="cypress" />
-describe('Test des différentes routes et ajout de favoris', () => {
+describe('Navigation', () => {
+    it('Navigation vers toutes les routes de l\'application', () => {
+        cy.visit('/trending');
 
-    it('quand on appuie sur le lien favoris on arrive sur la page des favoris', () => {
-        cy.visit('/favoris');
-
-        cy.get('a').contains('Favoris').click();
-
+        cy.get('[data-cy="favoris-link"]').click();
         cy.url().should('include', '/favoris');
-    });
 
-    it('quand on appuie sur le lien Lisye de Séries on arrive sur la page d\'accueil', () => {
-        cy.visit('/listeSerie');
+        cy.get('[data-cy="recherche-link"]').click();
+        cy.url().should('include', '/recherche');
+        cy.get('[data-cy="recherche-title"]').contains('Résultats de recherche');
 
-        cy.get('a').contains('Liste de séries').click();
+     
+        cy.get('[data-cy="trending-link"]').click();
+        cy.url().should('include', '/trending');
+        cy.get('[data-cy="trending-title"]').contains('Trending');
 
-        cy.url().should('include', '/listeSerie');
-    });
-
-    it('on ajoute une série aux favoris', () => {
-        cy.visit('/listeSerie');
-    
-        cy.get('button.favoris').eq(1).click();
-    
-        cy.url().should('include', '/listeSerie');
+        cy.visit('/route-inexistante');
+        cy.url().should('include', '/trending');
     });
 });
-
-describe('Déconnexion', () => {
-    it('Doit se déconnecter avec succès', () => {
-      cy.visit('/listeSerie');
-  
-      cy.contains('Déconnexion').click(); 
-  
-      cy.url().should('include', '/login');
-    });
-  });

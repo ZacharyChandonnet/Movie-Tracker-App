@@ -17,7 +17,9 @@ const Layout = ({ favorites, estDeconnecter, username, query, setQuery }) => {
     <>
       <Header />
       <Profil user={username} photo={photoAleatoire()} favorites={favorites} />
-      {pageRecherche ? null : <SearchEngine query={query} setQuery={setQuery} />}
+      {pageRecherche ? null : (
+        <SearchEngine query={query} setQuery={setQuery} />
+      )}
       <Outlet />
       <Footer estDeconnecter={estDeconnecter} />
     </>

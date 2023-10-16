@@ -7,10 +7,11 @@ import {
 import Login from "./Login";
 import Layout from "./Layout";
 import LayoutAuth from "./LayoutAuth";
-import ListeSeries from "./ListeSeries";
+import ListeTrending from "./ListeTrending";
 import Series from "./Series";
 import Recherche from "./Recherche";
 import ListeFavoris from "./ListeFavoris";
+import { useStorage } from "./hooks/useStorage";
 
 const App = () => {
   const [series, setSeries] = useState(null);
@@ -22,7 +23,8 @@ const App = () => {
   const [isFavorisPage, setIsFavorisPage] = useState(false);
   const [listeDeFavoris, setListeDeFavoris] = useState([]);
   const [query, setQuery] = useState("");
-
+  const { saveToStorage, getFromStorage, removeFromStorage } =
+    useStorage("dataUser-");
 
   useEffect(() => {
     const fetchSerie = async () => {
@@ -47,8 +49,8 @@ const App = () => {
       );
       const data = await resp.json();
       setListeDeFavoris(data.series);
+      saveToStorage("favoris", favoris);
     };
-
     fetchFavoris();
   }, [favoris]);
 
@@ -69,16 +71,36 @@ const App = () => {
     console.log(series);
   };
 
+  useEffect(() => {
+    const username = getFromStorage("username");
+    if (username) {
+      setUsername(username);
+      console.log("username", username);
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    const favoris = getFromStorage("favoris");
+    if (favoris) {
+      setFavoris(favoris);
+    }
+  }, []);
+
   const estConnecter = (username, password) => {
     setUsername(username);
     setPassword(password);
     setIsAuthenticated(true);
+    saveToStorage("username", username);
   };
 
   const estDeconnecter = () => {
+    setIsAuthenticated(false);
     setUsername("");
     setPassword("");
-    setIsAuthenticated(false);
+    saveToStorage("username", "");
+    setFavoris([]);
+    removeFromStorage("favoris");
     return <LayoutAuth />;
   };
 
@@ -100,7 +122,7 @@ const App = () => {
         {
           path: "trending",
           element: (
-            <ListeSeries
+            <ListeTrending
               series={seriesFiltrees}
               choisirSerie={choisirSerie}
               favoris={favoris}

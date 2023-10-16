@@ -10,6 +10,8 @@ import SerieAnimation from "./Animations/SerieAnimation.json";
 import { Navigate, useParams, useLocation } from "react-router-dom";
 
 const Series = ({ series }) => {
+  const [saisonVisible, setSaisonVisible] = useState(false);
+  const { id } = useParams();
   const location = useLocation();
   if (!series) {
     return <Navigate to={location.pathname} replace />;
@@ -34,7 +36,6 @@ const Series = ({ series }) => {
     seasons,
   } = series;
 
-  const [saisonVisible, setSaisonVisible] = useState(false);
 
   const voirSaison = () => {
     setSaisonVisible(!saisonVisible);
@@ -50,12 +51,11 @@ const Series = ({ series }) => {
   };
 
   try {
-    const { id } = useParams();
 
     return (
       <div id="Serie" className=" bg-gray-50 p-4">
         <div id="ListeSerie" className="flex pt-20">
-          <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
+          <h1 data-cy="serie-title" className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
             Série
             <div
               style={borderBottomStyle}

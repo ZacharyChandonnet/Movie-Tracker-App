@@ -1,46 +1,43 @@
 import { Link, Outlet, useLocation, Navigate } from "react-router-dom";
-import Lottie from "lottie-react";
-import ListeAnimation from "./Animations/ListeAnimation.json";
 import Favoris from "./Favoris";
+import { useState } from "react";
 
 const ListeSeries = ({ choisirSerie, favoris, ajouterFavoris, series }) => {
+  const location = useLocation();
+  const estDansListeSeries = location.pathname.includes("trending");
+  const estDansListeFavoris = location.pathname.includes("favoris");
+  const estDansRecherche = location.pathname.includes("recherche");
+  const [selectedSeries, setSelectedSeries] = useState(null);
+
   if (!series) {
     return <Navigate to={location.pathname} replace />;
   }
 
-  const borderBottomStyle = {
-    width: "120px",
-    height: "4px",
-    backgroundColor: "#4299E1",
-    marginLeft: "6rem",
-    marginTop: "0.2rem",
-    position: "absolute",
-  };
-
   return (
     <div id="ListeSerie">
-      <div className="flex pt-20">
-        <h1 className="text-blue-500 text-3xl font-semibold relative pl-10 pt-7">
-          Series Trending
-          <div
-            style={borderBottomStyle}
-            className="border-b-2 border-blue-500  mt-2"
-          ></div>
-        </h1>
-        <div className=" items-center">
-          <div className=" pl-10 w-32 h-32">
-            <Lottie animationData={ListeAnimation} />
-          </div>
-        </div>
-      </div>
       <div className="grid grid-cols-5 gap-5 p-4 mt-5">
         {series.map((serie) => (
-          <Link to={`/trending/${serie.id}`} key={serie.id}>
+          <Link
+            to={
+              estDansListeSeries
+                ? `/trending/${serie.id}`
+                : estDansListeFavoris
+                ? `/favoris/${serie.id}`
+                : estDansRecherche
+                ? `/recherche/${serie.id}`
+                : `/autre-chemin/${serie.id}`
+            }
+            key={serie.id}
+            data-testid="contenu"
+          >
             <div
-              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
+              className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform transform hover:scale-105 ${
+                selectedSeries === serie.id ? 'border-2 p-1 border-blue-300' : ''
+              }`}
               key={serie.id}
               onClick={() => {
                 choisirSerie(serie.id);
+                setSelectedSeries(serie.id);
               }}
             >
               <div className="overflow-hidden rounded-t-lg">

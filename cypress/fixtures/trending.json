@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Sex Education",
+        "year": 2019,
+        "id": 140590,
+        "slug": "sex-education",
+        "imdb": "https://www.imdb.com/title/tt7767422/",
+        "poster": "https://image.tmdb.org/t/p/w500/esUCvhY9yiH2MS45EPlgVbjmWBD.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/jKbqVjCOOL2P8cP1VNxbC2h31Re.jpg"
+    },
+    {
+        "title": "Moving",
+        "year": 2023,
+        "id": 193894,
+        "slug": "moving-2023",
+        "imdb": "https://www.imdb.com/title/tt24640580/",
+        "poster": "https://image.tmdb.org/t/p/w500/b9MhD5syJ7TbYSeje4wB4oyTzc7.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/29jWaRhKtey1efp5G7Fu97NAmzz.jpg"
+    },
+    {
+        "title": "Lupin",
+        "year": 2021,
+        "id": 164129,
+        "slug": "lupin",
+        "imdb": "https://www.imdb.com/title/tt2531336/",
+        "poster": "https://image.tmdb.org/t/p/w500/kjrUCOe9FEg9IodtJAcZ20WhJyK.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/9JcBVJO5wXbja2JD8XESnJ1Kify.jpg"
+    },
+    {
+        "title": "Gen V",
+        "year": 2023,
+        "id": 196842,
+        "slug": "gen-v",
+        "imdb": "https://www.imdb.com/title/tt13159924/",
+        "poster": "https://image.tmdb.org/t/p/w500/uuot1N5AgZ7xRCKgm4ZCwOhgIJu.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/aCROH2L1yTeRe3im0XOYiUbI2YJ.jpg"
+    },
+    {
+        "title": "The Walking Dead: Daryl Dixon",
+        "year": 2023,
+        "id": 198729,
+        "slug": "the-walking-dead-daryl-dixon",
+        "imdb": "https://www.imdb.com/title/tt13062500/",
+        "poster": "https://image.tmdb.org/t/p/w500/kdM24KINoAVK9wjCtDJCkdffEpc.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/fkeVnvxVx4x2PdDOOzSblFUGTVt.jpg"
+    },
+    {
+        "title": "Loki",
+        "year": 2021,
+        "id": 146535,
+        "slug": "loki",
+        "imdb": "https://www.imdb.com/title/tt9140554/",
+        "poster": "https://image.tmdb.org/t/p/w500/voHUmluYmKyleFkTu3lOXQG702u.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/q3jHCb4dMfYF6ojikKuHd6LscxC.jpg"
+    },
+    {
+        "title": "The Big Bang Theory",
+        "year": 2007,
+        "id": 1409,
+        "slug": "the-big-bang-theory",
+        "imdb": "https://www.imdb.com/title/tt0898266/",
+        "poster": "https://image.tmdb.org/t/p/w500/ooBGRQBdbGzBxAVfExiO8r7kloA.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/7RySzFeK3LPVMXcPtqfZnl6u4p1.jpg"
+    },
+    {
+        "title": "The Wheel of Time",
+        "year": 2021,
+        "id": 140100,
+        "slug": "the-wheel-of-time",
+        "imdb": "https://www.imdb.com/title/tt7462410/",
+        "poster": "https://image.tmdb.org/t/p/w500/ihBi24EIr5kwAeY2PqmsgAcCj4n.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/oahCTL082gwu6fYrxEOBe546uvB.jpg"
+    },
+    {
+        "title": "The Morning Show",
+        "year": 2019,
+        "id": 145783,
+        "slug": "the-morning-show",
+        "imdb": "https://www.imdb.com/title/tt7203552/",
+        "poster": "https://image.tmdb.org/t/p/w500/dJVlhv56kpZ6aQO6FWgbe0PtY6s.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/xVMVIetkeKgdqKmROK1tBjxivYG.jpg"
+    },
+    {
+        "title": "Ahsoka",
+        "year": 2023,
+        "id": 170559,
+        "slug": "ahsoka",
+        "imdb": "https://www.imdb.com/title/tt13622776/",
+        "poster": "https://image.tmdb.org/t/p/w500/laCJxobHoPVaLQTKxc14Y2zV64J.jpg",
+        "backdrop": "https://image.tmdb.org/t/p/original/mvoW41kdSxiobGZ9ONL1Tqrpt3h.jpg"
+    }
+]
