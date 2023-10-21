@@ -7,3 +7,4 @@ elle permet l'authentification des utilisateurs, l'ajout de leurs favoris, la po
 Toutes les données proviennent d'une API externe RESTful.
 
 Commande Tailwind : npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+API afin de pouvoir utiliser l'application : https://github.com/ZacharyChandonnet/Api-FlickFlow
