@@ -6,3 +6,10 @@
 - Toutes les données proviennent d'une API externe RESTful
 
 Voir le site -> https://flickflowtv.netlify.app/login
+
+
+## Stack utilisé
+- React
+- Tailwind & css
+- FramerMotion
+- APIrest
